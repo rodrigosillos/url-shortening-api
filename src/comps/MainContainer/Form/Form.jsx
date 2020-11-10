@@ -38,10 +38,10 @@ export default function Form() {
 
 	function handleFetch(link) {
 
-		fetch('https://api.shrtco.de/v2/shorten', {
-			method: 'POST',
+		fetch('https://api.shrtco.de/v2/shorten?url=' + link, {
+			method: 'GET',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ 'url': link })
+			mode: "no-cors",
 		})
 
 		.then(res => {
