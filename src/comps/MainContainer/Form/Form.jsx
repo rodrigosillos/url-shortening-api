@@ -3,6 +3,9 @@ import './Form.scss';
 
 import { LocalContext } from '../LocalStorageContext.jsx';
 
+import axios from 'axios';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+
 export default function Form() {
 
 	const { currentLocalData, updateLocalData } = useContext(LocalContext);
