@@ -1,0 +1,33 @@
+:root {
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+}
+
+body {
+	margin: 0;
+
+	#root {
+		overflow-x: hidden;
+		
+		header, footer {
+			padding: 30px 10vw;
+		}
+		a {
+			text-decoration: none;
+			font-size: .9rem;
+			white-space: nowrap;
+		}
+		.header, .main-container {
+			a, button {
+				font-weight: 700;
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 850px) {
+	:root {
+		font-size: 17px;
+	}
+}

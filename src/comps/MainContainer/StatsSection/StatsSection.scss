@@ -1,0 +1,91 @@
+@import '../../colors.scss';
+
+.stats-section {
+	padding-bottom: 100px;
+	text-align: center;
+	display: grid;
+	grid-template-areas: 
+	".....   main   ....."
+	"cards  cards   cards";
+	row-gap: 50px;
+	background-color: get-color(light-gray);
+
+	.main-text {
+		grid-area: main;
+		
+		.section-subtitle {
+			margin: 0 auto;
+		}
+	}
+
+	.cards {
+		grid-area: cards;
+		display: grid;
+		grid-template-rows: 50px 50px auto 50px 50px;
+		grid-template-areas: 
+		"card1    ...    ..."
+		"card1   card2   ..."
+		"card1   card2  card3"
+		"...     card2  card3"
+		"...     ...    card3";
+		grid-template-columns: repeat(3, 1fr);
+		column-gap: 30px;
+		background: repeating-linear-gradient(to bottom, transparent, transparent 49%,
+							get-color(cyan) 49%, get-color(cyan) 51%);
+
+
+		@for $i from 1 through 3 {
+			.card#{$i} {
+				grid-area: card#{$i};
+				background: white;
+				text-align: left;
+				padding: 30px;
+
+				position: relative;
+				.card-icon {
+					position: absolute;
+					top: -45px; // half the size of icon
+					width: 40px;
+					padding: 25px;
+					border-radius: 100%;
+					background: get-color(dark-violet);
+				}
+
+				.card-title {
+					margin: 50px 0 10px;
+				}
+				.card-detail {
+					margin: 0;
+					font-size: .9rem;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+@media screen and (max-width: 1075px) {
+	#root .stats-section {
+		row-gap: 100px;
+
+		.cards {
+			grid-template: unset;
+			grid-template-areas:
+			"card1" "card2" "card3";
+			row-gap: 100px;
+			background: repeating-linear-gradient(to right, transparent, transparent 49%,
+								get-color(cyan) 49%, get-color(cyan) 51%);
+
+			>* {
+				text-align: center;
+						
+				.card-icon {
+					left: 50%;
+					transform: translate(-50%);
+				}
+			}
+		}
+	}
+}

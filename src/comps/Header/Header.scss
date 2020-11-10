@@ -1,0 +1,103 @@
+@import '../cta-box.scss';
+@import '../colors.scss';
+
+.header {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	.icon-hamburger, .icon-close {
+		display: none;
+
+		path { fill: get-color(grayish-violet) }
+
+		&:hover {
+			cursor: pointer;
+			
+			path { fill: initial }
+		}
+	}
+
+	.navbar {
+		flex: 1 1 auto;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		
+		.nav-menu-1, .nav-menu-2 {
+			display: flex;
+			flex-flow: row nowrap;
+			justify-content: space-between;
+			align-items: center;
+
+			.navlink {
+				color: get-color(grayish-violet);
+
+				&:not(.cta-box):hover {
+					color: black;
+				}
+			}
+		}
+
+		.nav-menu-1 {
+			.navlink {
+				margin-left: 30px;
+			}
+		}
+
+		.nav-menu-2 {
+			.cta-box {
+				margin-left: 30px;
+				@include cta-box(get-color(cyan));
+			}
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 850px) {
+	#root .header {
+		position: relative;
+
+		.navbar.show {
+			clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+		}
+		.icon-hamburger { display: initial }
+
+		.navbar {
+			clip-path: polygon(100% 0, 0 0, 0 0, 100% 0);
+			transition: clip-path .2s;
+
+			position: absolute;
+			top: 100%; right: 5vw;
+			padding: 20px;
+
+			flex-direction: column;
+			background-color: get-color(dark-violet);
+			border-radius: 10px;
+
+			.nav-menu-1, .nav-menu-2 {
+				flex-direction: column;
+
+				.navlink, .cta-box {
+					color: white;
+					margin: 15px auto;
+				}
+			}
+
+			.nav-menu-2 {
+				margin-top: 5px;
+				border-top: rgba(255, 255, 255, .3) solid 1px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 450px) {
+	#root .header .navbar {
+		right: auto; left: auto;
+		width: 70%;
+	}
+}

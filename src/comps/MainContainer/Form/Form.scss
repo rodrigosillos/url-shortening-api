@@ -1,0 +1,81 @@
+@import '../../cta-box.scss';
+@import '../../colors.scss';
+
+.form {
+	background: linear-gradient(to top, get-color(light-gray) 50%, transparent 50%);
+	
+	.form-inner-wrapper {
+		background: get-color(dark-violet) url('../../../images/bg-shorten-desktop.svg') no-repeat;
+		border-radius: 10px;
+
+		width: 100%;
+		box-sizing: border-box;
+		padding: 3rem;
+
+		display: flex;
+		flex-flow: row nowrap;
+		
+
+		.submit {
+			@include cta-box(get-color(cyan), white, 10px);
+			margin-left: 30px;
+			flex: 1 1 30%;
+		}
+
+		.input-link, .submit {
+			padding: 1rem 1.5rem;
+		}
+
+		
+		.input-wrapper {
+			flex: 1 1 70%;
+
+			.input-link {
+				width: 100%; height: 100%;
+				box-sizing: border-box;
+				text-align: left;
+				
+				@include cta-box(white, get-color(gray), 10px);
+				padding: 1rem 1.5rem;
+
+				&:focus {	box-shadow: 0 0 10px 2px #000000c4	}
+			}
+			
+			position: relative;
+			.error-message {
+				display: none;
+				position: absolute;
+				top: 105%; left: 0;
+				font-style: italic;
+				color: get-color(light-red);
+			}
+
+			/************* ERROR CASE ******************/
+			&.error {
+				.input-link {
+					box-shadow: 0 0 0 2px get-color(red);
+
+					&::placeholder {
+						color: get-color(light-red);
+					}
+				}
+				.error-message {
+					display: initial;
+				}
+			}
+		}
+	}
+}
+
+
+@media screen and (max-width: 725px) {
+	#root .form .form-inner-wrapper {
+		flex-direction: column;
+		background: get-color(dark-violet) url('../../../images/bg-shorten-mobile.svg') no-repeat top right/contain;
+
+		.submit {
+			flex: 1 1 auto;
+			margin: 30px 0 0;
+		}
+	}
+}

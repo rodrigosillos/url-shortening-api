@@ -1,0 +1,48 @@
+@import '../colors.scss';
+@import '../cta-box.scss';
+
+.main-container {
+	>* {
+		padding: 50px 10vw;
+	}
+
+	.section-title, .card-title {
+		color: get-color(dark-blue);
+		margin: 0;
+	}
+	.section-subtitle, .card-detail {
+		color: get-color(grayish-violet);
+	}
+
+	h1.section-title {
+		font-size: 4rem;
+	}
+	h2.section-title {
+		font-size: 2.5rem;
+	}
+
+	.cta-box, .input-link {
+		font-size: 1.1rem;
+	}
+}
+
+
+.main-container .boost-section {
+	text-align: center;
+	background: get-color(dark-violet) url('../../images/bg-boost-desktop.svg') no-repeat;
+
+	.section-title {
+		color: white;
+	}
+	.cta-box {
+		margin-top: 20px;
+		@include cta-box(get-color(cyan));
+		padding: .5rem 1.6rem;
+	}
+}
+
+@media screen and (max-width: 605px) {
+	#root .main-container .boost-section {
+		background: get-color(dark-violet) url('../../images/bg-boost-mobile.svg') no-repeat right;
+	}
+}

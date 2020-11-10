@@ -1,0 +1,15 @@
+$colors: (
+	cyan: rgb(42, 207, 207),
+	dark-violet: hsl(258, 27%, 26%),
+	red: rgb(244, 98, 98),
+	light-red: rgba(244, 98, 98, 0.8),
+	light-gray: rgb(238, 240, 246),
+	grayish-violet: rgb(158, 154, 167),
+	dark-blue: rgb(53, 50, 62),
+	extreme-violet: rgb(35, 33, 39)
+);
+
+
+@function get-color($color) {
+	@return map-get($colors, $color);
+}

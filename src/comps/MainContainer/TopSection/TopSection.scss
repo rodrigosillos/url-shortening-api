@@ -1,0 +1,68 @@
+@import '../../cta-box.scss';
+@import '../../colors.scss';
+
+.top-section {
+	padding-right: 0;
+	padding-bottom: 0;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	.img-working {
+		order: 1;
+		margin-right: -10%;
+	}
+	
+	.text-container {
+		.section-title {
+			line-height: 4.5rem;
+		}
+		.section-subtitle {
+			font-size: 1.2rem;
+			margin-top: 0;
+			padding-right: 15%;
+		}
+		.cta-box {
+			@include cta-box(get-color(cyan));
+			padding: .5rem 1.6rem;
+			font-size: 1.1rem !important;
+		}
+	}
+}
+
+
+@media screen and (max-width: 1225px) {
+	#root .top-section {
+		flex-direction: column;
+		text-align: center;
+		padding-top: 0;
+		padding-left: 5%; padding-right: 5%;
+
+		.img-working {
+			order: 0;
+			margin: unset;
+		}
+
+		.text-container {
+			padding-top: 50px;
+			.section-subtitle {
+				padding-right: 0;
+				padding-top: unset;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 775px) {
+	#root .top-section {
+		.img-working {
+			width: 100vw;
+			margin-left: 20%;
+		}
+		.text-container .section-title {
+			font-size: 3rem;
+			line-height: 3.5rem;
+		}
+	}
+}
