@@ -38,7 +38,7 @@ export default function Form() {
 
 	function handleFetch(link) {
 
-		fetch('https://api.shrtco.de/v2/shorten/', {
+		fetch('https://api.shrtco.de/v2/shorten', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ 'url': link })
@@ -55,7 +55,7 @@ export default function Form() {
 		.then(data => {
 			let newLinkObject = {
 				originalLink: link,
-				shortenedLink: 'https://api.shrtco.de/v2/info/' + data.hashid
+				shortenedLink: 'https://api.shrtco.de/v2/info' + data.hashid
 			}
 
 			let currentLinksArray = currentLocalData === null ?  [] : JSON.parse(currentLocalData);
