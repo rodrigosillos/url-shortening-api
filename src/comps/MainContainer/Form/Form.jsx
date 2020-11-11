@@ -44,12 +44,12 @@ export default function Form() {
 			mode: "no-cors",
 		})
 
-		.then(res => {
-			if (!res.ok) {
+		.then(response => {
+			if (!response.ok) {
 				alert('Request Not Successful. Check the console for more information!');
-				return Promise.reject(res);
+				return Promise.reject(response);
 			}
-			return res.json();
+			return response.json();
 		})
 
 		.then(data => {
