@@ -39,23 +39,21 @@ export default function Form() {
 	function handleFetch(link) {
 
 		fetch('https://api.shrtco.de/v2/shorten?url=' + link, {
-			method: 'GET',
-			headers: { 'Content-Type': 'application/json' },
-			mode: "no-cors",
+			method: 'GET'
 		})
 
-		.then(response => {
-			if (!response.ok) {
-				alert('Request Not Successful. Check the console for more information!');
-				return Promise.reject(response);
+		.then(result => {
+			if (!result.ok) {
+				alert('Response Not Successful. Check the console for more information!');
+				return Promise.reject(result);
 			}
-			return response.json();
+			return result.json();
 		})
 
 		.then(data => {
 			let newLinkObject = {
 				originalLink: link,
-				shortenedLink: 'https://api.shrtco.de/v2/info' + data.hashid
+				shortenedLink: data.result.short_link
 			}
 
 			let currentLinksArray = currentLocalData === null ?  [] : JSON.parse(currentLocalData);
